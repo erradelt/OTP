@@ -30,6 +30,11 @@ def generator(source):
     text = ''.join(message)
     return text
 
+    for i in range(len(decrypt_key)):
+        for ii in range(len(decrypt_key[i])):
+            inner = ''.join(str(decrypt_key[i]))
+        print (decrypt_key[i])
+
 
     with open(file_path_key, 'w') as file_key:
         file_key.write(str(decrypt_key))
