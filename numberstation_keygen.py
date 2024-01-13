@@ -19,7 +19,7 @@ def generator(source):
             temp.append(randomtemp[ii])
         random.shuffle(temp)
         decrypt_key.append(temp)
-        
+
     with open(file_path_key, 'w') as file_key:
         file_key.write(str(decrypt_key))
 
@@ -27,10 +27,10 @@ def generator(source):
     message = []
     for i in range(len(decrypt_key)):
         try:
-            message.append(decrypt_key[i].index(wordlist[i]))
+            message.append(str(decrypt_key[i].index(wordlist[i])))
         except ValueError:
             pass
-
-
     
-    return str(message)
+    print(type(message))
+    text = ''.join(message)
+    return text
