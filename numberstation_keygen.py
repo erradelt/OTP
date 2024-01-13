@@ -10,7 +10,7 @@ def generator(source):
     for i in range(len(source)):
         wordlist.append(source[i])
 
-    decrypt_key = []
+    raw_key = [] #raw_key is the encrypted messege, it will be added to the key later on
     for i in range(len(wordlist)):
         temp = []
         randomtemp = random.sample(letterlist, 4)
@@ -18,24 +18,18 @@ def generator(source):
         for ii in range(len(randomtemp)):
             temp.append(randomtemp[ii])
         random.shuffle(temp)
-        decrypt_key.append(temp)
+        raw_key.append(temp)
 
     message = []
-    for i in range(len(decrypt_key)):
+    for i in range(len(raw_key)):
         try:
-            message.append(str(decrypt_key[i].index(wordlist[i])))
+            message.append(str(raw_key[i].index(wordlist[i])))
         except ValueError:
             pass
     
+    
     text = ''.join(message)
-    return text
-
-    for i in range(len(decrypt_key)):
-        for ii in range(len(decrypt_key[i])):
-            inner = ''.join(str(decrypt_key[i]))
-        print(decrypt_key[i])
-
-
+            
     with open(file_path_key, 'w') as file_key:
-        file_key.write(str(decrypt_key))
-
+        file_key.write(str(raw_key))
+    return text
