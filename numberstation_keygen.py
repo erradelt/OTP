@@ -20,10 +20,6 @@ def generator(source):
         random.shuffle(temp)
         decrypt_key.append(temp)
 
-    with open(file_path_key, 'w') as file_key:
-        file_key.write(str(decrypt_key))
-
-
     message = []
     for i in range(len(decrypt_key)):
         try:
@@ -31,6 +27,10 @@ def generator(source):
         except ValueError:
             pass
     
-    print(type(message))
     text = ''.join(message)
     return text
+
+
+    with open(file_path_key, 'w') as file_key:
+        file_key.write(str(decrypt_key))
+
