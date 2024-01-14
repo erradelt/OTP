@@ -49,8 +49,6 @@ def generator(source):
     for i in range(4):
         indlist.append(random.choice(letterlist))
     random0.append(indlist) 
-    
-    print (random0)
 
     text = ''.join(message)
             

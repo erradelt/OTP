@@ -1,17 +1,16 @@
 import ast
 import os
-import filepathgen as fg
 
-file_path_key = os.path.join(fg.current_directory, 'keytext.txt') #'/home/robert/Python/02_OTP/keytext.txt'
+key = []
 
-with open(file_path_key, 'r') as file_key:
-    key = file_key.read()
-    keylist = ast.literal_eval(key)
+def filekey(keylist):
+    temp = ast.literal_eval(keylist)
+    for i in range(len(temp)):
+        key.append(temp[i])
 
 def decrypter(message):
     decrypted = []
-    for i in range(len(keylist)): 
-        decrypted.append(str(keylist[i][message[i]]))
+    for i in range(len(key)): 
+        decrypted.append(key[i][message[i]])
     text = ''.join(decrypted)
     return text
-    

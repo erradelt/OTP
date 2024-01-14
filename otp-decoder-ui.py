@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 import ast
 
-import decoder as od
+import decoder as odt
 
 if getattr(sys, 'frozen', False):
     # If the application is run as a bundle, the PyInstaller bootloader
@@ -14,6 +14,24 @@ if getattr(sys, 'frozen', False):
 else:
     application_path = os.path.dirname(os.path.abspath(__file__))
 
+class DropLabel(QLabel):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setAlignment(QtCore.Qt.AlignCenter)
+        self.setAcceptDrops(True)
+
+    def dragEnterEvent(self, event):
+        mime_data = event.mimeData()
+        if mime_data.hasUrls() and mime_data.urls()[0].toString().endswith('.txt'):
+            event.acceptProposedAction()
+
+    def dropEvent(self, event):
+        file_path = event.mimeData().urls()[0].toLocalFile()
+        with open(file_path, 'r') as file:
+            content = file.read()
+            self.setText('key dropped')
+            odt.filekey(content)
+        
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -67,12 +85,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
-        self.label_3.setAcceptDrops(True)
-        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_3.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
-        self.label_3.setObjectName("label_3")
-        self.verticalLayout_2.addWidget(self.label_3)
+        #self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        #self.label_3.setAcceptDrops(True)
+        #self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        #self.label_3.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
+        #self.label_3.setObjectName("label_3")
+        #self.verticalLayout_2.addWidget(self.label_3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 25))
@@ -90,7 +108,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "place message here"))
         self.lineEdit.setToolTip('only integers are allowed')
+        self.label_3 = DropLabel(self.verticalLayoutWidget_2)
+        self.label_3.setAcceptDrops(True)
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
+        self.label_3.setObjectName("label_3")
         self.label_3.setText('drop key here')
+        self.verticalLayout_2.addWidget(self.label_3)
         self.pushButton.setText(_translate("MainWindow", "decode"))
         self.label.setText(_translate("MainWindow", "decoded message"))
         self.label_2.setText(_translate("MainWindow", ""))
@@ -106,8 +130,7 @@ class Ui_MainWindow(object):
             self.message = self.lineEdit.text()
             for i in range(len(self.message)):
                 self.messagelist.append(int(self.message[i]))
-            self.tts = od.decrypter(self.messagelist) # tts = text to set
-        
+            self.tts = odt.decrypter(self.messagelist) # tts = text to set
 # calculate size of label to add line brake
             font_metrics = self.label_2.fontMetrics()
             text_width = font_metrics.width(self.tts)
@@ -115,13 +138,12 @@ class Ui_MainWindow(object):
             label_width = self.label_2.width()
 # calculate maximal length of each line
             chars_per_line = len(self.tts)*label_width//text_width
-
             tts_broken = '\n'.join([self.tts[i:i+chars_per_line] for i  in range(0, len(self.tts), chars_per_line)])
-
             self.label_2.setText(tts_broken)
         except ValueError:
             QMessageBox.warning(None, 'wrong input', 'only numbers 0 to 9 are allowed')
             self.lineEdit.setStyleSheet('border: 2px solid red')
+
 class MyMainWindow(QMainWindow):
     def __init__(self):
         super(MyMainWindow, self).__init__()
