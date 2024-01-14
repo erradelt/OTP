@@ -11,7 +11,7 @@ with open(file_path_key, 'r') as file_key:
 def decrypter(message):
     decrypted = []
     for i in range(len(keylist)): 
-        decrypted.append(keylist[i][message[i]])
+        decrypted.append(str(keylist[i][message[i]]))
     text = ''.join(decrypted)
     return text
     

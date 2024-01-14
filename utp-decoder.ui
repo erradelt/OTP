@@ -18,15 +18,21 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>30</y>
+      <y>160</y>
       <width>491</width>
-      <height>80</height>
+      <height>30</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLineEdit" name="lineEdit">
+       <property name="toolTip">
+        <string>only integers are allowed</string>
+       </property>
        <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
         <string>place message here</string>
        </property>
       </widget>
@@ -44,9 +50,9 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>120</y>
+      <y>190</y>
       <width>491</width>
-      <height>311</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -68,7 +74,7 @@
           <x>0</x>
           <y>0</y>
           <width>483</width>
-          <height>281</height>
+          <height>211</height>
          </rect>
         </property>
         <widget class="QScrollBar" name="verticalScrollBar">
@@ -96,8 +102,45 @@
          <property name="text">
           <string>TextLabel</string>
          </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
         </widget>
        </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>69</x>
+      <y>9</y>
+      <width>491</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>drop key here</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::NoTextInteraction</set>
+       </property>
       </widget>
      </item>
     </layout>
