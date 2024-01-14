@@ -82,11 +82,10 @@ class Ui_MainWindow(object):
     def klicked(self):
         self.messagelist = []
         
-        #self.message = ast.literal_eval(self.lineEdit.text())
         self.message = self.lineEdit.text()
         print(self.message)
         for i in range(len(self.message)):
-            self.messagelist.append(self.message[i])
+            self.messagelist.append(int(self.message[i]))
         print(self.messagelist)
         self.tts = od.decrypter(self.messagelist) # tts = text to set
 # calculate size of label to add line brake
