@@ -35,7 +35,7 @@ def generator(source):
     for i in range(n):
         random0.append(random.sample(letterlist, 5))
     
-    # append actual keylists
+    # append actual keylist
     for i in range(len(raw_key)):
         random0.append(raw_key[i])
     #random number of lists with random characters
