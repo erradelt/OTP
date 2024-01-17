@@ -5,10 +5,13 @@ key = []
 start = []
 
 def filekey(keylist):
-    temp = ast.literal_eval(keylist)
-    start.append(temp[-1][0])
-    for i in range(len(temp)):
-        key.append(temp[i])
+    try:
+        temp = ast.literal_eval(keylist)
+        start.append(temp[-1][0])
+        for i in range(len(temp)):
+            key.append(temp[i])
+    except SyntaxError:
+        pass
 
 def decrypter(message):
     try:

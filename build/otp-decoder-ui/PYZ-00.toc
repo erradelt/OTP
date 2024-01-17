@@ -52,7 +52,6 @@
   ('email.policy', '/usr/lib/python3.11/email/policy.py', 'PYMODULE'),
   ('email.quoprimime', '/usr/lib/python3.11/email/quoprimime.py', 'PYMODULE'),
   ('email.utils', '/usr/lib/python3.11/email/utils.py', 'PYMODULE'),
-  ('filepathgen', '/home/robert/Python/02_OTP/filepathgen.py', 'PYMODULE'),
   ('fnmatch', '/usr/lib/python3.11/fnmatch.py', 'PYMODULE'),
   ('fractions', '/usr/lib/python3.11/fractions.py', 'PYMODULE'),
   ('getopt', '/usr/lib/python3.11/getopt.py', 'PYMODULE'),
