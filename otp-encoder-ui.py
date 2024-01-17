@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 
     def encoda(self):
         self.label_2.setText(nk.generator(self.lineEdit.text()))
-        QMessageBox.information(None, 'message ended', 'the message was succesfully encoded <br> the key.txt was saved to: <br> %s' %nk.file_path_key)
+        QMessageBox.information(None, 'message ended', 'the message was succesfully encoded <br> the key.txt was saved to: <br> %s' %nk.file_path_keyp)
 
     def clipper(self):
         clipboard = QApplication.clipboard()
