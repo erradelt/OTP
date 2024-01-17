@@ -2,8 +2,7 @@ import random
 import os
 import filepathgen as fg
 
-file_path_key = os.path.join(fg.current_directory, 'keytext.txt')
-file_path_key_test = os.path.join(fg.current_directory, 'keytexttest.txt')
+file_path_key_test = os.path.join(fg.current_directory, 'keytext.txt')
 def generator(source):
     letterlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ', ',','.',1,2,3,4,5,6,7,8,9,0]
     
@@ -52,8 +51,6 @@ def generator(source):
 
     text = ''.join(message)
             
-    with open(file_path_key, 'w') as file_key:
-        file_key.write(str(raw_key))
     with open(file_path_key_test, 'w') as file_key:
         file_key.write(str(random0))
     return text
