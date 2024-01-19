@@ -43,7 +43,7 @@ run the executable
 
 from a hardwareperspective: the rotten potato you forgot in your kitchen drawer should be enough
 
-RUN THE PROGRAM
+RUN THE PROGRAM:
 the following instructions are true wether you start the program(s) from an IDE or the executable
 
 to generate a key and an encrypted message start 'otp-encrypter-ui'
