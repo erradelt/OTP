@@ -10,16 +10,6 @@ the sender, since every key is only used once (one time).
 
 i tried to recreate this procedure with a program.
 
-STRUCTURE:
-encrypter
-	|-otp-encrypter-ui.py
-		|-numberstations-keygen.py
-			|-filegen.py
-
-decrypter
-	|-otp-decrypter-ui.py
-		|-decoder.py
-		
 the program is devided into two sections: encryting and decrypting. as of now, as displayed, it also
 is devided into two programs. future updates will combine these two programs into one
 to enhance usability. also the modules will be renamed. the future structure will look like this:
@@ -53,9 +43,9 @@ to generate a key and an encrypted message start 'otp-encrypter-ui'
 - the encrypted message will be shown below
 - copy the encrypted message by clicking on the 'copy to clipboard'-button
 	
-	# WARNING #
-	the message will only be available to the clipboard while 'otp-encrypter-ui' is running
-	at this point i'm not shure if this is a bug or a feature
+# WARNING #
+the message will only be available to the clipboard while 'otp-encrypter-ui' is running
+at this point i'm not shure if this is a bug or a feature
 
 to decrypt an encrypted message start 'otp-decrypter-ui'
 - find the key in your system and drag&drop it to the designated area
