@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QClipboard
 
-import numberstation_keygen as nk
+import otp_encrypter as nk
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 
     def encoda(self):
         self.label_2.setText(nk.generator(self.lineEdit.text()))
-        QMessageBox.information(None, 'message ended', 'the message was succesfully encoded <br> the key.txt was saved to: <br> %s' %nk.file_path_keyp)
+        QMessageBox.information(None, 'message ended', 'the message was succesfully encoded <br> the key.txt was saved to: <br> %s' %nk.file_path_key)
 
     def clipper(self):
         clipboard = QApplication.clipboard()
