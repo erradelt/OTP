@@ -14,7 +14,7 @@ class MasterWin(QMainWindow):
               
     def UIsetting(self):
         self.setGeometry (200,200,700,700)
-        self.setWindowTitle('[STRAVAinterpreter]')
+        self.setWindowTitle('OneTimePad')
         self.table_widget = GuiTabs(self)
         self.setCentralWidget(self.table_widget)      
         self.show()
